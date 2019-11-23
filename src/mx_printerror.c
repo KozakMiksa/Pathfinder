@@ -26,8 +26,14 @@ static void error_1_2_3(int num, char *file)
     }
 }
 
+static void error_4(char *argv)
+{
+    char *str = mx_file_to_str(argv);
+    
+}
+
 void mx_printerror(int argc, char *argv)
 {
     error_1_2_3(argc, argv);
-    
+    error_4(argv);
 }
