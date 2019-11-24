@@ -34,9 +34,8 @@ static void printerror_5(int i)
     exit(0);
 }
 
-static void error_4_5(char *argv)
+static void error_4_5(char **arr)
 {
-    char **arr = mx_strsplit(mx_file_to_str(argv), '\n');
     for(int i = 0; arr[0][i] != '\n'; i++)
     {
         if (mx_isdigit(arr[0][i]) == 0)
@@ -77,5 +76,24 @@ static void error_4_5(char *argv)
 void mx_printerror(int argc, char *argv)
 {
     error_1_2_3(argc, argv);
-    error_4_5(argv);
+    char *str_for_arr = mx_file_to_str(argv);
+    char **arr = mx_strsplit(str_for_arr, '\n');
+    char *str = mx_strnew(mx_strlen(str_for_arr));
+    mx_strdel(str_for_arr);
+    error_4_5(arr);
+    int s = 0;
+    for(int i = 1; arr[i] != NULL; i++)
+    {
+    	for(int j = 0; arr[i][j] != ','; j++)
+    	{
+    		while(mx_isalpha(arr[i][j]) == 1)
+    		{
+    			str[s++] = arr[i][j++];
+    		}
+    		str[s++] = ',';
+    	}
+    }
+    mx_del_strarr(arr);
+    arr = mx_strsplit(str, ',');
+    
 }
