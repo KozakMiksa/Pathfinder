@@ -4,6 +4,7 @@ INC = ./inc/libmx.h
 HEADTMP = ./libmx.h
 
 SRC = ./mx_printchar.c \
+./mx_atoi.c \
 ./mx_print_unicode.c \
 ./mx_printstr.c \
 ./mx_print_strarr.c \
@@ -68,6 +69,7 @@ SRC = ./mx_printchar.c \
 ./mx_strlen_my.c \
 
 SRCS = ./src/mx_printchar.c \
+./src/mx_atoi.c \
 ./src/mx_print_unicode.c \
 ./src/mx_printstr.c \
 ./src/mx_print_strarr.c \
@@ -132,6 +134,7 @@ SRCS = ./src/mx_printchar.c \
 ./src/mx_strlen_my.c \
 
 OBJ = ./mx_printchar.o \
+./mx_atoi.o \
 ./mx_print_unicode.o \
 ./mx_printstr.o \
 ./mx_print_strarr.o \
@@ -196,6 +199,7 @@ OBJ = ./mx_printchar.o \
 ./mx_strlen_my.o
 
 OBJO = ./obj/mx_printchar.o \
+./obj/mx_atoi.c \
 ./obj/mx_print_unicode.o \
 ./obj/mx_printstr.o \
 ./obj/mx_print_strarr.o \

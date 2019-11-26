@@ -101,12 +101,15 @@ void mx_printerror(int argc, char *argv)
     char **arr = mx_strsplit(str_a, '\n');
     error_4_5(arr);
     char **err6 = mx_deldub(mx_strsplit(arr_to_str(arr, str_a), ','));
-    //int island_size = mx_atoi(arr[0]);
+    mx_strdel(str_a);
+    int island_size = mx_atoi(arr[0]);
+    mx_del_strarr(err6);
     int i = 0;
     for(; err6[i] != NULL; i++);
-    mx_printint(i);
-    /*if (i != island_size)
+    if (i != island_size)
     {
         write(2, "error: invalid number of islands\n", 32);
-    }*/
+        exit(0);
+    }
+    mx_del_strarr(err6);
 }

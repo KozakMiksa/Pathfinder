@@ -24,11 +24,11 @@ char **mx_deldub(char **arr1)
     {
     	int j = 0;
     	for (; mx_strcmp(arr1[i], arr2[j]) != 0 && j < c - 1; j++);
-    	if (j == c - 1)
+    	if (j == c - 1 && mx_strcmp(arr1[i], arr2[j]) != 0)
     	{
     		len = mx_strlen(arr1[i]);
     		arr2[c] = mx_strnew(len);
-    		for (int n = 0; n < len; n++)
+    		for (int n = 0; n < len; n++) 
     		{
     			arr2[c][n] = arr1[i][n];
     		}
