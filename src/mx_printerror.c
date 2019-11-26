@@ -73,7 +73,7 @@ static void error_4_5(char **arr)
     }   
 }
 
-static char *arr_to_str(char **arr, char *str_for_arr);
+static char *arr_to_str(char **arr, char *str_for_arr)
 {
     char *str = mx_strnew(mx_strlen(str_for_arr));
     int s = 0;
@@ -100,12 +100,13 @@ void mx_printerror(int argc, char *argv)
     char *str_a = mx_file_to_str(argv);
     char **arr = mx_strsplit(str_a, '\n');
     error_4_5(arr);
-    char **err6 = mx_deldub(mx_strsplit(arr_to_str(arr, str_a), ','), ',');
-    int island_size = mx_atoi(arr[0]);
+    char **err6 = mx_deldub(mx_strsplit(arr_to_str(arr, str_a), ','));
+    //int island_size = mx_atoi(arr[0]);
     int i = 0;
     for(; err6[i] != NULL; i++);
-    if (i != island_size)
+    mx_printint(i);
+    /*if (i != island_size)
     {
         write(2, "error: invalid number of islands\n", 32);
-    }
+    }*/
 }
