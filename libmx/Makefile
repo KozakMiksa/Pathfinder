@@ -199,7 +199,7 @@ OBJ = ./mx_printchar.o \
 ./mx_strlen_my.o
 
 OBJO = ./obj/mx_printchar.o \
-./obj/mx_atoi.c \
+./obj/mx_atoi.o \
 ./obj/mx_print_unicode.o \
 ./obj/mx_printstr.o \
 ./obj/mx_print_strarr.o \

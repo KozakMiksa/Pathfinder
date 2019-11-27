@@ -1,22 +1,27 @@
-NAME = path
+NAME = pathfinder
 
 INC = ./path.h ./libmx.h
 
 INCI = ./inc/path.h ./inc/libmx.h
 
 SRC = ./main.c \
-./mx_printerror.c
+./mx_printerror.c \
+./mx_deldub.c
 
 SRCS = ./src/main.c \
-./src/mx_printerror.c
+./src/mx_printerror.c \
+./src/mx_deldub.c
 
 OBJ = ./main.o \
-./mx_printerror.o
+./mx_printerror.o \
+./mx_deldub.o
 
 OBJO = ./obj/main.o \
-./obj/mx_printerror.o
+./obj/mx_printerror.o \
+./obj/mx_deldub.o
 
 LOBJ = ./mx_printchar.o \
+./mx_atoi.o \
 ./mx_print_unicode.o \
 ./mx_printstr.o \
 ./mx_print_strarr.o \
