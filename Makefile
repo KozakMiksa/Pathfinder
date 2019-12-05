@@ -6,19 +6,23 @@ INCI = ./inc/path.h ./inc/libmx.h
 
 SRC = ./main.c \
 ./mx_printerror.c \
-./mx_deldub.c
+./mx_deldub.c \
+./mx_arr_to_list.c
 
 SRCS = ./src/main.c \
 ./src/mx_printerror.c \
-./src/mx_deldub.c
+./src/mx_deldub.c \
+./src/mx_arr_to_list.c
 
 OBJ = ./main.o \
 ./mx_printerror.o \
-./mx_deldub.o
+./mx_deldub.o \
+./mx_arr_to_list.o
 
 OBJO = ./obj/main.o \
 ./obj/mx_printerror.o \
-./obj/mx_deldub.o
+./obj/mx_deldub.o \
+./obj/mx_arr_to_list.o
 
 LOBJ = ./mx_printchar.o \
 ./mx_atoi.o \

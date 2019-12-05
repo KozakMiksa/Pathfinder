@@ -70,23 +70,24 @@ static char *arr_to_str(char **arr, char *str_new) {
     return str;
 }
 
-void mx_printerror(int argc, char *argv) {
+char **mx_printerror(int argc, char *argv, char ***arr) {
     error_1_2_3(argc, argv);
     char *str = mx_file_to_str(argv);
-    char **arr = mx_strsplit(str, '\n');
-    error_4_5(arr);
-    int island_size = mx_atoi(arr[0]);
-    str = arr_to_str(arr, str);
-    mx_del_strarr(&arr);
-    arr = mx_strsplit(str, ',');
+    *arr = mx_strsplit(str, '\n');
+    error_4_5(*arr);
+    int island_size = mx_atoi(*arr[0]);
+    str = arr_to_str(*arr, str);
+    //mx_del_strarr(&arr);
+    char **arr_n = mx_strsplit(str, ',');
     mx_strdel(&str);
-    char **err6 = mx_deldub(arr);
-    mx_del_strarr(&arr);
+    char **err6 = mx_deldub(arr_n);
+    mx_del_strarr(&arr_n);
     int i = 0;
     for(; err6[i] != NULL; i++);
     if (i != island_size) {
         write(2, "error: invalid number of islands\n", 33);
         exit(0);
     }
-    mx_del_strarr(&err6);
+    return err6;
+    //mx_del_strarr(&err6);
 }
