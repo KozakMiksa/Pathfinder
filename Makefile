@@ -7,22 +7,30 @@ INCI = ./inc/path.h ./inc/libmx.h
 SRC = ./main.c \
 ./mx_printerror.c \
 ./mx_deldub.c \
-./mx_arr_to_list.c
+./mx_arr_to_list.c \
+./mx_pathfinder.c \
+./mx_creat_MX.c
 
 SRCS = ./src/main.c \
 ./src/mx_printerror.c \
 ./src/mx_deldub.c \
-./src/mx_arr_to_list.c
+./src/mx_arr_to_list.c \
+./src/mx_pathfinder.c \
+./src/mx_creat_MX.c
 
 OBJ = ./main.o \
 ./mx_printerror.o \
 ./mx_deldub.o \
-./mx_arr_to_list.o
+./mx_arr_to_list.o \
+./mx_pathfinder.o \
+./mx_creat_MX.o
 
 OBJO = ./obj/main.o \
 ./obj/mx_printerror.o \
 ./obj/mx_deldub.o \
-./obj/mx_arr_to_list.o
+./obj/mx_arr_to_list.o \
+./obj/mx_pathfinder.o \
+./obj/mx_creat_MX.o
 
 LOBJ = ./mx_printchar.o \
 ./mx_atoi.o \

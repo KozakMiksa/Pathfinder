@@ -17,14 +17,14 @@ static void push_back(rib_t **node_r, char *isl1, char *isl2, int dist) {
     n->next = node;
 }
 static int superlen(char *str, int *c2) {
-    int c1 = 0;
+    int c1 = *c2;
     while (*str != '-') {
         c1++;
         str++;
     }
     str++;
     while (*str != ',') {
-        *c2++;
+        (*c2)++;
         str++;
     }
     return c1;

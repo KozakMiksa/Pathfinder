@@ -77,7 +77,6 @@ char **mx_printerror(int argc, char *argv, char ***arr) {
     error_4_5(*arr);
     int island_size = mx_atoi(*arr[0]);
     str = arr_to_str(*arr, str);
-    //mx_del_strarr(&arr);
     char **arr_n = mx_strsplit(str, ',');
     mx_strdel(&str);
     char **err6 = mx_deldub(arr_n);
@@ -89,5 +88,4 @@ char **mx_printerror(int argc, char *argv, char ***arr) {
         exit(0);
     }
     return err6;
-    //mx_del_strarr(&err6);
 }
