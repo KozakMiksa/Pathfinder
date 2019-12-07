@@ -10,15 +10,21 @@ typedef struct rib
     int dist;
     struct rib *next;
 } rib_t;
+
 typedef struct path
 {
-	
-} path_l;
+	char *list;	
+} path_t;
+
+typedef struct turn {
+    int turn;
+    struct turn *next;
+} turn_p;
 
 char **mx_printerror(int argc, char *argv, char ***arr);
 char **mx_deldub(char **arr1);
 rib_t *mx_arr_to_list(char **arr);
-path_l *mx_pathfinder(rib_t *list, char **orig);
-void mx_creat_MX(int ***mx_W, int ***mx_H, int size);
+path_t *mx_pathfinder(rib_t *list, char **orig, int size);
+void mx_creat_MX(int ***mx_W, turn_p ****mx_H, char **ar, rib_t *list);
 
 #endif
