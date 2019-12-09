@@ -66,8 +66,14 @@ static turn_p *create(int turn) {
 static void pb_turn(turn_p **list, int turn) {
     turn_p *nlist = *list;
     turn_p *newl = create(turn);
-
-    while (nlist->next != NULL)
+    if (*list == NULL)
+        *list = newl;
+    while (nlist->next != NULL) {
+        // if (nlist->turn == turn)
+        //     return;
         nlist = nlist->next;
+    }
+    // if (nlist->turn == turn)
+    //     return;
     nlist->next = newl;
 }
