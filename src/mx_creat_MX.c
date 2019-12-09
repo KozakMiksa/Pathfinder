@@ -3,15 +3,19 @@
 static int h(char **arr, char *str);
 static int **cr_mx_W(int size);
 static turn_p ***cr_mx_H(int size);
-static void fil_mx(int ***arr_W, turn_p ****arr_H, rib_t *list, char **ar);
+static void fill_mx(int ***arr_W, turn_p ****arr_H, rib_t *list, char **ar);
 
-void mx_creat_MX(int ***mx_W, turn_p ****mx_H, char **ar, rib_t *list) {
+int **mx_creat_MX(int ***mx_W, turn_p ****mx_H, char **ar, rib_t *list) {
     int size = 0;
+    int **mx_W_cp = NULL;
 
     for (; ar[size] != NULL; size++);
     *mx_W = cr_mx_W(size);
+    mx_W_cp = cr_mx_W(size);
     *mx_H = cr_mx_H(size);
-    fil_mx(mx_W, mx_H, list, ar);
+    fill_mx(mx_W, mx_H, list, ar);
+    fill_mx(&mx_W_cp, mx_H, list, ar);
+    return mx_W_cp;
 }
 
 static int **cr_mx_W(int size) {
@@ -52,7 +56,7 @@ static int h(char **arr, char *str) {
     return i;
 }
 
-static void fil_mx(int ***arr_W, turn_p ****arr_H, rib_t *list, char **ar) {
+static void fill_mx(int ***arr_W, turn_p ****arr_H, rib_t *list, char **ar) {
     int **arr_w = *arr_W;
     turn_p ***arr_h = *arr_H;
 

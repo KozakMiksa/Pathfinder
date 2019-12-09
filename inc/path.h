@@ -25,6 +25,8 @@ char **mx_printerror(int argc, char *argv, char ***arr);
 char **mx_deldub(char **arr1);
 rib_t *mx_arr_to_list(char **arr);
 path_t *mx_pathfinder(rib_t *list, char **orig, int size);
-void mx_creat_MX(int ***mx_W, turn_p ****mx_H, char **ar, rib_t *list);
+int **mx_creat_MX(int ***mx_W, turn_p ****mx_H, char **ar, rib_t *list);
+void mx_deldub_l(turn_p ****mxH, int size);
+void mx_fill_path(char **orig);
 
 #endif
