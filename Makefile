@@ -11,7 +11,8 @@ SRC = ./main.c \
 ./mx_pathfinder.c \
 ./mx_creat_MX.c \
 ./mx_fill_path.c \
-./mx_deldub_l.c
+./mx_adjacency.c \
+./mx_deep_search.c
 
 SRCS = ./src/main.c \
 ./src/mx_printerror.c \
@@ -20,8 +21,8 @@ SRCS = ./src/main.c \
 ./src/mx_pathfinder.c \
 ./src/mx_creat_MX.c \
 ./src/mx_fill_path.c \
-./src/mx_deldub_l.c
-
+./src/mx_adjacency.c \
+./src/mx_deep_search.c
 OBJ = ./main.o \
 ./mx_printerror.o \
 ./mx_deldub.o \
@@ -29,7 +30,8 @@ OBJ = ./main.o \
 ./mx_pathfinder.o \
 ./mx_creat_MX.o \
 ./mx_fill_path.o \
-./mx_deldub_l.o
+./mx_adjacency.o \
+./mx_deep_search.o
 
 OBJO = ./obj/main.o \
 ./obj/mx_printerror.o \
@@ -38,7 +40,8 @@ OBJO = ./obj/main.o \
 ./obj/mx_pathfinder.o \
 ./obj/mx_creat_MX.o \
 ./obj/mx_fill_path.o \
-./obj/mx_deldub_l.o
+./obj/mx_adjacency.o \
+./obj/mx_deep_search.o
 
 LOBJ = ./mx_printchar.o \
 ./mx_atoi.o \

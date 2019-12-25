@@ -15,6 +15,10 @@ void mx_deldub_l(turn_p ****mxH, int size) {
             tmpT = tmp;
             tmpMXH = mxh[i][j];
             while (tmpMXH != NULL) {
+                // while (tmp->next != NULL) {
+                //     if (tmpMXH->turn != tmp->turn)
+                //         tmp = tmp->next;
+                // }
                 if (tmp->turn != tmpMXH->turn)
                     pb_turn(&tmpT, tmpMXH->turn);
                 tmp = tmpT;
