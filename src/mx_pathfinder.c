@@ -24,6 +24,8 @@ path_t *mx_pathfinder(rib_t *list, char **orig, int size) {
 
     mx_creat_MX(&mxW, orig, list);
     floyd(&mxW, size);
+    mx_deep_search(adj, mxW);
+
     // print_list(adj, size);
 
 

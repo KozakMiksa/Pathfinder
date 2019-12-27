@@ -11,7 +11,7 @@ typedef struct rib {
 } rib_t;
 
 typedef struct path {
-	char *list;	
+    char *list;	
 } path_t;
 
 typedef struct s_adj {
@@ -20,10 +20,17 @@ typedef struct s_adj {
     struct  s_adj *next;
 } t_adj;
 
-// typedef struct turn {
-//     int turn;
-//     struct turn *next;
-// } turn_p;
+typedef struct s_route {
+    int point;
+    struct s_route *next;
+} t_route;
+
+typedef struct s_stack {
+	t_route *route;
+	int next_point;
+	int weight;
+	struct s_stack *next;
+} t_stack;
 
 char **mx_printerror(int argc, char *argv, char ***arr);
 char **mx_deldub(char **arr1);
