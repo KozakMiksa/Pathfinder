@@ -6,7 +6,7 @@ void mx_deep_search(t_adj **adj, int **mxW) {
 
     for (int i = 0; i < size; i++)
         for (int j = i + 1; j < size; j++)
-            creat_stack(&stack_p, i);
+            stack_p = create_stack(i, 0);
             while (stack_p != NULL) {
                 if (stack_p->weight < mxW[i][j]) {
                     tmp = adj[stack_p->to];
@@ -25,18 +25,29 @@ void mx_deep_search(t_adj **adj, int **mxW) {
                     }
         }
 }
-static t_stack *creat_stack(t_route *route, int next_point, int weight) {
-    t_stack *stack_p = malloc(sizeof(t_stack *));
 
-    creat_point(stack_p->path.point =);
-    stack_p->next = NULL;
-    return stack_p;
+t_route *create_route(int point) {
+    t_route *new_r = malloc(sizeof(t_route));
+
+    new_r->point = point;
+    new_r->next = NULL;
+    return new_r;
 }
 
-static void
+t_stack *create_stack(int next_point, int weight) {
+    t_stack *new_s = malloc(sizeof(t_stack));
+    new_s->route = create_route(point);
 
-static void stack(t_adj **adj, t_stack **stack_p) {
+    new_s->next_point = next_point;
+    new_s->weight = weight;
+    new_s->next = NULL;
+    return new_s;
+}
+
+
+static void stack(t_adj *adj, t_stack *stack_p) {
     
+
 }
 
 static void del_first_stack(t_stack stack_p) {
