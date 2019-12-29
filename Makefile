@@ -109,7 +109,7 @@ LOBJ = ./mx_printchar.o \
 ./mx_strlen_my.o
 
 
-CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror 
+CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror# -g -fsanitize=address
 
 all: install uninstall #launch
 

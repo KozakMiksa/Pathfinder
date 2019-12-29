@@ -37,7 +37,8 @@ char **mx_deldub(char **arr1);
 rib_t *mx_arr_to_list(char **arr);
 path_t *mx_pathfinder(rib_t *list, char **orig, int size);
 void mx_creat_MX(int ***mx_W, char **ar, rib_t *list);
-void mx_fill_path(char **orig); // not used
+void mx_fill_path(t_route **route, int **mxW, char **orig); // not used
 t_adj **mx_adjacency(rib_t *list, char **orig, int size);
+void mx_deep_search(t_adj **Adj, int **mxW, char **orig, int size);
 
 #endif
