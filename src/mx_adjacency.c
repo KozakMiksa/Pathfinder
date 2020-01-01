@@ -4,7 +4,7 @@ static int hesh(char **arr, char *str);
 static t_adj *create(char *to, int weight, char **arr);
 static void pb_turn(t_adj **list, char *to, int weight, char **arr);
 
-t_adj **mx_adjacency(rib_t *list, char **orig, int size) {
+t_adj **mx_adjacency(t_rib *list, char **orig, int size) {
     t_adj **adj = malloc(size * sizeof(t_adj *));
     int h = 0;
 
@@ -41,9 +41,8 @@ static void pb_turn(t_adj **list, char *to, int weight, char **arr) {
 
     if (*list == NULL)
         *list = newl;
-    while (nlist->next != NULL)
-        nlist = nlist->next;
-    nlist->next = newl;
+    newl->next = nlist;
+    *list = newl;
 }
 
 static int hesh(char **arr, char *str) {

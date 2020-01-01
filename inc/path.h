@@ -3,16 +3,12 @@
 
 #include "libmx.h"
 
-typedef struct rib {
+typedef struct s_rib {
     char *isl1;
     char *isl2;
     int dist;
-    struct rib *next;
-} rib_t;
-
-typedef struct path {
-    char *list;	
-} path_t;
+    struct s_rib *next;
+} t_rib;
 
 typedef struct s_adj {
     int to;
@@ -34,11 +30,13 @@ typedef struct s_stack {
 
 char **mx_printerror(int argc, char *argv, char ***arr);
 char **mx_deldub(char **arr1);
-rib_t *mx_arr_to_list(char **arr);
-path_t *mx_pathfinder(rib_t *list, char **orig, int size);
-void mx_creat_MX(int ***mx_W, char **ar, rib_t *list);
-void mx_fill_path(t_route **route, int **mxW, char **orig); // not used
-t_adj **mx_adjacency(rib_t *list, char **orig, int size);
+t_rib *mx_arr_to_list(char **arr, int i);
+void mx_pathfinder(t_rib *list, char **orig, int size);
+void mx_creat_MX(int ***mx_W, char **ar, t_rib *list);
+void mx_fill_path(t_route **route, int **mxW, char **orig);
+t_adj **mx_adjacency(t_rib *list, char **orig, int size);
 void mx_deep_search(t_adj **Adj, int **mxW, char **orig, int size);
+void mx_stack(t_stack **stack, int next, int weight);
+void mx_del_first_stack(t_stack **stack);
 
 #endif

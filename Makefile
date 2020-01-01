@@ -12,7 +12,9 @@ SRC = ./main.c \
 ./mx_creat_MX.c \
 ./mx_fill_path.c \
 ./mx_adjacency.c \
-./mx_deep_search.c
+./mx_deep_search.c \
+./mx_stack.c \
+./mx_del_first_stack.c
 
 SRCS = ./src/main.c \
 ./src/mx_printerror.c \
@@ -22,7 +24,10 @@ SRCS = ./src/main.c \
 ./src/mx_creat_MX.c \
 ./src/mx_fill_path.c \
 ./src/mx_adjacency.c \
-./src/mx_deep_search.c
+./src/mx_deep_search.c \
+./src/mx_stack.c \
+./src/mx_del_first_stack.c
+
 OBJ = ./main.o \
 ./mx_printerror.o \
 ./mx_deldub.o \
@@ -31,17 +36,9 @@ OBJ = ./main.o \
 ./mx_creat_MX.o \
 ./mx_fill_path.o \
 ./mx_adjacency.o \
-./mx_deep_search.o
-
-OBJO = ./obj/main.o \
-./obj/mx_printerror.o \
-./obj/mx_deldub.o \
-./obj/mx_arr_to_list.o \
-./obj/mx_pathfinder.o \
-./obj/mx_creat_MX.o \
-./obj/mx_fill_path.o \
-./obj/mx_adjacency.o \
-./obj/mx_deep_search.o
+./mx_deep_search.o \
+./mx_stack.o \
+./mx_del_first_stack.o
 
 LOBJ = ./mx_printchar.o \
 ./mx_atoi.o \
@@ -109,7 +106,7 @@ LOBJ = ./mx_printchar.o \
 ./mx_strlen_my.o
 
 
-CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror# -g -fsanitize=address
+CFLGS = -std=c11# -Wall -Wextra -Wpedantic -Werror# -g -fsanitize=address
 
 all: install uninstall #launch
 
@@ -120,8 +117,8 @@ install:
 	@cd libmx && make -f Makefile all
 	@cp libmx/libmx.a $(INCI) $(SRCS) .
 	@ar x libmx.a
-	@clang $(CFLGS) -c  $(SRC) -I $(INC)
-	@clang $(CFLGS) $(OBJ) $(LOBJ) -o $(NAME)
+	@gcc $(CFLGS) -c  $(SRC) -I $(INC)
+	@gcc $(CFLGS) $(OBJ) $(LOBJ) -o $(NAME)
 	@mkdir  obj
 	@mv $(OBJ) $(LOBJ) ./obj
 	
