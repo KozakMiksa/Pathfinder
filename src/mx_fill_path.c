@@ -4,7 +4,6 @@ static void print_path(t_route *test, char **arr);
 static void print_route(t_route *test, char **arr);
 static void print_dist(t_route *test, int **mxW);
 
-
 void mx_fill_path(t_route **route, int **mxW, char **orig) {
     t_route *r = *route;
 
@@ -12,8 +11,6 @@ void mx_fill_path(t_route **route, int **mxW, char **orig) {
     print_route(*route, orig);
     print_dist(r, mxW);
 }
-
-
 
 static void print_path(t_route *test, char **arr) {
     mx_printstr("========================================\n");
@@ -25,6 +22,7 @@ static void print_path(t_route *test, char **arr) {
     mx_printstr(arr[test->point]);
     mx_printchar('\n');
 }
+
 static void print_route(t_route *test, char **arr) {
     mx_printstr("Route: ");
     while (test->next != NULL) {
@@ -35,6 +33,7 @@ static void print_route(t_route *test, char **arr) {
     mx_printstr(arr[test->point]);
     mx_printchar('\n');
 }
+
 static void print_dist(t_route *test, int **mxW) {
     t_route *t = test;
 

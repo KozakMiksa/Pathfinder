@@ -106,29 +106,27 @@ LOBJ = ./mx_printchar.o \
 ./mx_strlen_my.o
 
 
-CFLGS = -std=c11# -Wall -Wextra -Wpedantic -Werror# -g -fsanitize=address
+CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror
 
-all: install uninstall #launch
-
-launch:
-	@ ./$(NAME)
+all: install clean
 
 install:
-	@cd libmx && make -f Makefile all
+	@make install -sC libmx/
 	@cp libmx/libmx.a $(INCI) $(SRCS) .
 	@ar x libmx.a
-	@gcc $(CFLGS) -c  $(SRC) -I $(INC)
-	@gcc $(CFLGS) $(OBJ) $(LOBJ) -o $(NAME)
+	@clang $(CFLGS) -c  $(SRC) -I $(INC)
+	@clang $(CFLGS) $(OBJ) $(LOBJ) -o $(NAME)
 	@mkdir  obj
 	@mv $(OBJ) $(LOBJ) ./obj
+	@rm -rf $(SRC) $(INC) 
+	@rm -rf libmx.a __.SYMDEF\ SORTED libmx.h.gch
 	
-
-uninstall:
-	@rm -rf $(SRC) $(INC)
-	@rm -rf ./obj
-	@rm -rf libmx.h.gch libmx.a __.SYMDEF\ SORTED 
-
-clean: uninstall
+uninstall: clean
+	@make uninstall -sC libmx/
 	@rm -rf $(NAME)
 
-reinstall: clean all
+clean:
+	@make clean -sC libmx/
+	@rm -rf ./obj
+
+reinstall: uninstall install

@@ -43,6 +43,7 @@ static t_stack *create_stack(int next, int next_point, int weight) {
     new_s->next = NULL;
     return new_s;
 }
+
 static void pb_route(t_route **route, int next) {
     t_route *r = *route;
     t_route *new_r = create_route(next);

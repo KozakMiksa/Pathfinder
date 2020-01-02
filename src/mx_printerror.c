@@ -1,5 +1,31 @@
 #include "path.h"
 
+static void error_1_2_3(int num, char *f);
+static void printerror_5(int i);
+static void error_4_5(char **arr);
+static char *arr_to_str(char **arr, char *str_new);
+
+
+char **mx_printerror(int argc, char *argv, char ***arr) {
+    error_1_2_3(argc, argv);
+    char *str = mx_file_to_str(argv);
+    *arr = mx_strsplit(str, '\n');
+    error_4_5(*arr);
+    int island_size = mx_atoi(*arr[0]);
+    str = arr_to_str(*arr, str);
+    char **arr_n = mx_strsplit(str, ',');
+    mx_strdel(&str);
+    char **err6 = mx_deldub(arr_n);
+    mx_del_strarr(&arr_n);
+    int i = 0;
+    for(; err6[i] != NULL; i++);
+    if (i != island_size) {
+        write(2, "error: invalid number of islands\n", 33);
+        exit(0);
+    }
+    return err6;
+}
+
 static void error_1_2_3(int num, char *f) {
     if (num != 2) {
         write(2,"usage: ./pathfinder [filename]\n", 31);
@@ -68,24 +94,4 @@ static char *arr_to_str(char **arr, char *str_new) {
         }
     }
     return str;
-}
-
-char **mx_printerror(int argc, char *argv, char ***arr) {
-    error_1_2_3(argc, argv);
-    char *str = mx_file_to_str(argv);
-    *arr = mx_strsplit(str, '\n');
-    error_4_5(*arr);
-    int island_size = mx_atoi(*arr[0]);
-    str = arr_to_str(*arr, str);
-    char **arr_n = mx_strsplit(str, ',');
-    mx_strdel(&str);
-    char **err6 = mx_deldub(arr_n);
-    mx_del_strarr(&arr_n);
-    int i = 0;
-    for(; err6[i] != NULL; i++);
-    if (i != island_size) {
-        write(2, "error: invalid number of islands\n", 33);
-        exit(0);
-    }
-    return err6;
 }
