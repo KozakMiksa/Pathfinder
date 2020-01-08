@@ -263,13 +263,13 @@ OBJO = ./obj/mx_printchar.o \
 ./obj/mx_swap_str.o \
 ./obj/mx_strlen_my.o \
 
-CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror 
+CFLGS = -std=c11# -Wall -Wextra -Wpedantic -Werror 
 
 all: install clean
 
 install:
 	@cp $(INC) $(SRCS) .
-	@clang $(CFLGS) -c  $(SRC)
+	@gcc $(CFLGS) -c  $(SRC)
 	@mkdir  obj
 	@mv $(OBJ) ./obj
 	@ar -rc $(NAME) $(OBJO)

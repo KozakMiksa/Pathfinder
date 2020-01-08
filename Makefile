@@ -106,7 +106,7 @@ LOBJ = ./mx_printchar.o \
 ./mx_strlen_my.o
 
 
-CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror
+CFLGS = -std=c11# -Wall -Wextra -Wpedantic -Werror
 
 all: install clean
 
@@ -114,8 +114,8 @@ install:
 	@make install -sC libmx/
 	@cp libmx/libmx.a $(INCI) $(SRCS) .
 	@ar x libmx.a
-	@clang $(CFLGS) -c  $(SRC) -I $(INC)
-	@clang $(CFLGS) $(OBJ) $(LOBJ) -o $(NAME)
+	@gcc $(CFLGS) -c  $(SRC) -I $(INC)
+	@gcc $(CFLGS) $(OBJ) $(LOBJ) -o $(NAME)
 	@mkdir  obj
 	@mv $(OBJ) $(LOBJ) ./obj
 	@rm -rf $(SRC) $(INC) 
