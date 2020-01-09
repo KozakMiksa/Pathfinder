@@ -3,25 +3,11 @@
 static void error_1_2_3(int num, char *f);
 static void printerror_4_5(int i);
 static void error_4_5(char **arr);
-static char *arr_to_str(char **arr, char *str_new);
+static void dop(char *str);
 
-void dop(char *str) {
-    int count = 0;
-
-    if (str[0] == '\n')
-        printerror_4_5(count);
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (str[i] == '\n' && str[i + 1] == '\n')
-            printerror_4_5(count + 1);
-        if (str[i] == '\n')
-            count++;
-    }
-}
-
-char **mx_printerror(int argc, char *argv, char ***arr) {
-    int i = 0;
+char **mx_printerror(int argc, char *argv, char ***arr, int i) {
     char *str = NULL;
-    //char **arr_n = NULL;
+    char **arr_n = NULL;
     char **err6 = NULL;
 
     error_1_2_3(argc, argv);
@@ -29,11 +15,11 @@ char **mx_printerror(int argc, char *argv, char ***arr) {
     *arr = mx_strsplit(str, '\n');
     error_4_5(*arr);
     dop(str);
-    str = arr_to_str(*arr, str);
-    err6 = mx_strsplit(str, ',');
+    str = mx_arr_to_str(*arr, str);
+    arr_n = mx_strsplit(str, ',');
     mx_strdel(&str);
-    err6 = mx_deldub(err6);
-    //mx_del_strarr(&arr_n);
+    err6 = mx_deldub(arr_n);
+    mx_del_strarr(&arr_n);
     for(; err6[i] != NULL; i++);
     if (i != mx_atoi(*arr[0])) {
         write(2, "error: invalid number of islands\n", 33);
@@ -100,20 +86,18 @@ static void error_4_5(char **arr) {
     }   
 }
 
-static char *arr_to_str(char **arr, char *str_new) {
-    char *str = mx_strnew(mx_strlen(str_new));
-    int s = 0;
+static void dop(char *str) {
+    int count = 0;
+    int i = 0;
 
-    mx_strdel(&str_new);
-    for (int i = 1; arr[i] != NULL; i++) {
-        for (int j = 0; arr[i][j] != ',';) {
-            str[s++] = arr[i][j++];
-            if (mx_isalpha(arr[i][j]) != 1) {
-                str[s++] = ',';
-                if (arr[i][j] != ',')
-                    j++;
-            }
-        }
+    if (str[0] == '\n')
+        printerror_4_5(count);
+    for (; str[i] != '\0'; i++) {
+        if (str[i] == '\n' && str[i + 1] == '\n')
+            printerror_4_5(count + 1);
+        if (str[i] == '\n')
+            count++;
     }
-    return str;
+    if (str[i - 1] != '\n')
+        printerror_4_5(count);
 }

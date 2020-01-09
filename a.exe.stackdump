@@ -1,9 +1,0 @@
-Exception: STATUS_ACCESS_VIOLATION at eip=61138CD4
-eax=200382C8 ebx=0061CC6C ecx=00905A4D edx=00000000 esi=00000000 edi=0061CD64
-ebp=0061CC48 esp=0061CC18 program=C:\Users\User\Desktop\tree\a.exe, pid 7700, thread main
-cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
-Stack trace:
-Frame     Function  Args
-0061CC48  61138CD4 (00000003, 0061CC6C, 20010100, 00000000)
-0061CD08  6100842E (00000000, 0061CD64, 61007530, 00000000)
-End of stack trace

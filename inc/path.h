@@ -28,7 +28,7 @@ typedef struct s_stack {
 	struct s_stack *next;
 } t_stack;
 
-char **mx_printerror(int argc, char *argv, char ***arr);
+char **mx_printerror(int argc, char *argv, char ***arr, int i);
 char **mx_deldub(char **arr1);
 t_rib *mx_arr_to_list(char **arr, int i);
 void mx_pathfinder(t_rib *list, char **orig, int size);
@@ -38,5 +38,6 @@ t_adj **mx_adjacency(t_rib *list, char **orig, int size);
 void mx_deep_search(t_adj **Adj, int **mxW, char **orig, int size);
 void mx_stack(t_stack **stack, int next, int weight);
 void mx_del_first_stack(t_stack **stack);
+char *mx_arr_to_str(char **arr, char *str_new);
 
 #endif
