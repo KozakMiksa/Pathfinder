@@ -39,5 +39,6 @@ void mx_deep_search(t_adj **Adj, int **mxW, char **orig, int size);
 void mx_stack(t_stack **stack, int next, int weight);
 void mx_del_first_stack(t_stack **stack);
 char *mx_arr_to_str(char **arr, char *str_new);
+bool mx_CheckReturn(t_stack *stack_p, int to);
 
 #endif

@@ -12,6 +12,8 @@ int mx_atoi(char *s) {
 			m = m * -1;
 			i++;
 			while (mx_isdigit(s[i]) == 1) {
+				if (((10 * n) + s[i] - 48) > 2147483647)
+					return -1;
 				n = (10 * n) + s[i] - 48;
 				i++;
 			}
@@ -20,6 +22,8 @@ int mx_atoi(char *s) {
 			if (s[i] == '+')
 				i++;
 			while (mx_isdigit(s[i]) == 1) {
+				if (((10 * n) + s[i] - 48) > 2147483647)
+					return -1;
 				n = (10 * n) + s[i] - 48;
 				i++;
 			}

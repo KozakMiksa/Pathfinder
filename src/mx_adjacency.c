@@ -47,6 +47,7 @@ static void pb_turn(t_adj **list, char *to, int weight, char **arr) {
 
 static int hesh(char **arr, char *str) {
     int i = 0;
+    
     while (mx_strcmp(arr[i], str) != 0)
         i++;
     return i;

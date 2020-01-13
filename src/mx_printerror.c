@@ -12,6 +12,8 @@ char **mx_printerror(int argc, char *argv, char ***arr, int i) {
 
     error_1_2_3(argc, argv);
     str = mx_file_to_str(argv);
+    if (str[0] == '\n')
+        printerror_4_5(0);
     *arr = mx_strsplit(str, '\n');
     error_4_5(*arr);
     dop(str);
@@ -21,10 +23,8 @@ char **mx_printerror(int argc, char *argv, char ***arr, int i) {
     err6 = mx_deldub(arr_n);
     mx_del_strarr(&arr_n);
     for(; err6[i] != NULL; i++);
-    if (i != mx_atoi(*arr[0])) {
-        write(2, "error: invalid number of islands\n", 33);
-        exit(0);
-    }
+    if (i != mx_atoi(*arr[0]))
+        printerror_4_5(-1);
     return err6;
 }
 
@@ -55,6 +55,10 @@ static void printerror_4_5(int i) {
     char *s = mx_strjoin("error: line ", mx_itoa(i + 1));
     char *ss = mx_strjoin(s, " is not valid\n");
 
+    if (i == -1) {
+        write(2, "error: invalid number of islands\n", 33);
+        exit(0);
+    }
     if (i == 0) {
         write(2, "error: line 1 is not valid\n", 27);
         exit(0);
@@ -90,6 +94,8 @@ static void dop(char *str) {
     int count = 0;
     int i = 0;
 
+    // for (; str[i] != '\0')
+    //     if ()
     if (str[0] == '\n')
         printerror_4_5(count);
     for (; str[i] != '\0'; i++) {

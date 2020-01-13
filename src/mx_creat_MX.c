@@ -40,8 +40,15 @@ static void fill_mx(int ***arr_W, t_rib *list, char **ar) {
     int **arr_w = *arr_W;
 
     while (list != NULL) {
+        if (arr_w[hesh(ar, list->isl1)][hesh(ar, list->isl2)] != 0 &&
+            arr_w[hesh(ar, list->isl1)][hesh(ar, list->isl2)] > list->dist) {
         arr_w[hesh(ar, list->isl1)][hesh(ar, list->isl2)] = list->dist;
         arr_w[hesh(ar, list->isl2)][hesh(ar, list->isl1)] = list->dist;
-        list = list->next;
+    }
+    if (arr_w[hesh(ar, list->isl1)][hesh(ar, list->isl2)] == 0) {
+        arr_w[hesh(ar, list->isl1)][hesh(ar, list->isl2)] = list->dist;
+        arr_w[hesh(ar, list->isl2)][hesh(ar, list->isl1)] = list->dist;
+    }
+    list = list->next;
     }
 }

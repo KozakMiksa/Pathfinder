@@ -32,9 +32,13 @@ static void while_stack(t_adj **Adj, t_stack *stack_p) {
     t_adj *tmp = Adj[stack_p->next_point];
 
     while (Adj[stack_p->next_point] != NULL) {
-        mx_stack(&stack_p, Adj[stack_p->next_point]->to,
-                 Adj[stack_p->next_point]->weight);
-        Adj[stack_p->next_point] = Adj[stack_p->next_point]->next;
+        if (mx_CheckReturn(stack_p, Adj[stack_p->next_point]->to) == 1) {
+            mx_stack(&stack_p, Adj[stack_p->next_point]->to,
+                     Adj[stack_p->next_point]->weight);
+            Adj[stack_p->next_point] = Adj[stack_p->next_point]->next;
+        }
+        else
+            Adj[stack_p->next_point] = Adj[stack_p->next_point]->next;
         }
     Adj[stack_p->next_point] = tmp;
 }

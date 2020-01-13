@@ -15,7 +15,8 @@ SRC = ./main.c \
 ./mx_deep_search.c \
 ./mx_stack.c \
 ./mx_del_first_stack.c \
-./mx_arr_to_str.c
+./mx_arr_to_str.c \
+./mx_CheckReturn.c
 
 SRCS = ./src/main.c \
 ./src/mx_printerror.c \
@@ -28,7 +29,8 @@ SRCS = ./src/main.c \
 ./src/mx_deep_search.c \
 ./src/mx_stack.c \
 ./src/mx_del_first_stack.c \
-./src/mx_arr_to_str.c
+./src/mx_arr_to_str.c \
+./src/mx_CheckReturn.c
 
 OBJ = ./main.o \
 ./mx_printerror.o \
@@ -41,7 +43,8 @@ OBJ = ./main.o \
 ./mx_deep_search.o \
 ./mx_stack.o \
 ./mx_del_first_stack.o \
-./mx_arr_to_str.o
+./mx_arr_to_str.o \
+./mx_CheckReturn.o
 
 LOBJ = ./mx_printchar.o \
 ./mx_atoi.o \
